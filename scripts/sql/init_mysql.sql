@@ -1,0 +1,20 @@
+CREATE DATABASE IF NOT EXISTS login_demo
+  DEFAULT CHARACTER SET utf8mb4
+  COLLATE utf8mb4_general_ci;
+
+USE login_demo;
+
+DROP TABLE IF EXISTS sys_user;
+
+CREATE TABLE sys_user (
+  id BIGINT NOT NULL PRIMARY KEY,
+  username VARCHAR(50) NOT NULL UNIQUE,
+  password VARCHAR(100) NOT NULL,
+  nickname VARCHAR(50) DEFAULT NULL,
+  status TINYINT NOT NULL DEFAULT 1,
+  create_time DATETIME DEFAULT CURRENT_TIMESTAMP,
+  update_time DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+INSERT INTO sys_user (id, username, password, nickname, status)
+VALUES (1, 'admin', '123456', '管理员', 1);
