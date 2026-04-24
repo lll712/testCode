@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -21,6 +22,18 @@ public class User {
 
     @Column(length = 50)
     private String nickname;
+
+    @Column(length = 20)
+    private String phone;
+
+    @Column(length = 100)
+    private String email;
+
+    @Column(name = "member_card_no", length = 30)
+    private String memberCardNo;
+
+    @Column(precision = 10, scale = 2)
+    private BigDecimal balance;
 
     @Column(nullable = false)
     private Integer status;
@@ -63,6 +76,38 @@ public class User {
         this.nickname = nickname;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getMemberCardNo() {
+        return memberCardNo;
+    }
+
+    public void setMemberCardNo(String memberCardNo) {
+        this.memberCardNo = memberCardNo;
+    }
+
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
+    }
+
     public Integer getStatus() {
         return status;
     }
@@ -87,4 +132,3 @@ public class User {
         this.updateTime = updateTime;
     }
 }
-
